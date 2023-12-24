@@ -3,7 +3,7 @@ import httpServices from "./httpServices";
 // require('dotenv').config();
 
 
-const apiEndpoint ="https://new-vidly.onrender.com/api"+'/users'
+const apiEndpoint ="https://new-vidly.onrender.com/api/users"
 console.log(apiEndpoint);
 
 

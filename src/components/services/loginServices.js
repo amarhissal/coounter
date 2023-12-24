@@ -6,7 +6,7 @@ import jwtDecode from 'jwt-decode'
 
 
 
- const apiEndpont = "https://new-vidly.onrender.com/api"+ '/auth'
+ const apiEndpont = "https://new-vidly.onrender.com/api/auth"
 
 export async function  login(email,password){
     const {data:jwt}= await  httpServices.post(apiEndpont,{email,password})
