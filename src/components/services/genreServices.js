@@ -8,3 +8,6 @@ export function getGenres() {
     return httpServices.get(apiUrl+'/genres')
   }
   
+  export default{
+    getGenres
+  }

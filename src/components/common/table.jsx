@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TableHeader from './tableheader';
 import TableBody from './tablebody';
 

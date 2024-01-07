@@ -8,6 +8,7 @@ import _ from 'lodash';
 import MoviesTable from './common/moviesTable';
 import { Link } from 'react-router-dom';
 import SearchBox from './common/searchbox';
+import { ClipLoader } from 'react-spinners';
 import '../index.css';
 
 
@@ -68,7 +69,7 @@ class Vidly extends Component {
         const {user} =this.props
         const {totalCount,data}=this.getPageDate();
         const {length } = this.state.movie;
-        if(length===0) return  <p>There is No Movie in Database</p>
+        if(length===0) return  <div className='loderdiv' ><ClipLoader size={250} color={'#123abc'}  />  </div> 
 
 
         return (

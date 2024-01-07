@@ -1,7 +1,4 @@
-function log (error){
+export function log (error){
 console.error(error)
 }
 
-export default {
-    log
-};
