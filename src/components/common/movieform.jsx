@@ -4,6 +4,8 @@ import Joi from 'joi';
 import {getMovie,saveMovie} from '../services/movieService'
 import { getGenres } from '../services/genreServices';
 import { toast } from 'react-toastify';
+
+
 class MovieForm extends Form {
   state = { 
      data:{
@@ -64,6 +66,8 @@ class MovieForm extends Form {
     try{
       await saveMovie(this.state.data)
       this.props.history.push("/movies")
+     
+      
     }
     catch(ex){
       toast.error('You have to login First!')
@@ -77,7 +81,6 @@ class MovieForm extends Form {
     <h1>Movie Form</h1>
     
     <form onSubmit={this.handleSubmit}>
-            
        
 
             {this.renderInput("title","Title","text")}
@@ -86,6 +89,7 @@ class MovieForm extends Form {
             {this.renderInput("numberInStock","NumberInStock","text")}
             {this.renderInput("dailyRentalRate","Rate","text")}
 
+            
 
         
             {this.renderButton("save")}

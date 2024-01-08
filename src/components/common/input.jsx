@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 const Input = ({name,lable,value,onChange,error,type}) => {
     return (  <div className="form-group">
     <label htmlFor={name}>{lable}</label>

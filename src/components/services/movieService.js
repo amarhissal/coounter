@@ -1,3 +1,4 @@
+import { log } from "joi-browser";
 import httpServices from "./httpServices";
 // import config from './config.json'
 
@@ -27,11 +28,13 @@ export async function saveMovie(movie){
         delete body._id
  
 
-        await httpServices.put(apiUrl+'/movies/'+movie._id,body)
+      const res=  await httpServices.put(apiUrl+'/movies/'+movie._id,body)
+      return res.status
       
     }
     else{
        await  httpServices.post(apiUrl+'/movies',movie)
+     
       
 
     }
