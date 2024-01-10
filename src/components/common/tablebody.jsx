@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import _ from 'lodash'
 class TableBody extends Component {
     renderCell=(item,column)=>{

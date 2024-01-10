@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {Route,Redirect,Switch} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Vidly from './components/vidly';
@@ -39,7 +41,7 @@ componentDidMount() {
     <ProtectedRoute path='/movies/:id' component={MovieForm}  />
     <Route path='/movies'
     render={props=><Vidly {...props} user={this.state.user}/>} ></Route>
-    <Route path='/customers' component={Customer}></Route>
+    <ProtectedRoute path='/customers' component={Customer}></ProtectedRoute>
     <Route path='/rentals' component={Rentals}></Route>
     <Route path='/notfound' component={NotFound}></Route>
     <Redirect from='/' exact to='/movies'></Redirect> 

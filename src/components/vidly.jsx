@@ -8,6 +8,8 @@ import _ from 'lodash';
 import MoviesTable from './common/moviesTable';
 import { Link } from 'react-router-dom';
 import SearchBox from './common/searchbox';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import { ClipLoader } from 'react-spinners';
 import '../index.css';
 
@@ -34,7 +36,7 @@ class Vidly extends Component {
 
 
         this.setState({movie,genre})
-
+ 
       }
 
       getPageDate=()=>{

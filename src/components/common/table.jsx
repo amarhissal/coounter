@@ -1,4 +1,6 @@
 import React from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import TableHeader from './tableheader';
 import TableBody from './tablebody';
 

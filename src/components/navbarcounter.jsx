@@ -1,4 +1,6 @@
 import React  from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import {NavLink,Link} from 'react-router-dom';
 
 const Navbar=({user})=> {

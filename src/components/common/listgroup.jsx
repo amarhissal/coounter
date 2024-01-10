@@ -1,4 +1,6 @@
 import '../../index.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import '../../App.css'
 
 const ListGroup = (props) => {
