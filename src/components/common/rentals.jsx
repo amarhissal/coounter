@@ -67,7 +67,7 @@ class Rentals extends Component {
           data={data}
           sortColumn={sortColumn}
           onSort={this.handleSort}
-          columns={this.columnns}
+          columns={this.columnns}  {/* Pass as columns prop */}
         />
       </>
     );
