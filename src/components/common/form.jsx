@@ -61,6 +61,19 @@ class Form extends Component {
         </button> 
        );
       }
+
+        renderBackButton = () => {
+        return (
+        <button
+        type="button"
+        onClick={() => this.props.navigate(-1)}  // Or this.props.history.goBack()
+        className="btn btn-secondary mb-2"
+        >
+          Back
+         </button>
+        );
+        };
+
    
       renderInput=(name,label,type="text")=>{
         return( <Input name={name}
