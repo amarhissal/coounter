@@ -42,7 +42,7 @@ componentDidMount() {
     <Route path='/movies'
     render={props=><Vidly {...props} user={this.state.user}/>} ></Route>
     <ProtectedRoute path='/customers' component={Customer}></ProtectedRoute>
-    <Route path='/rentals' component={Rentals}></Route>
+    <ProtectedRoute path='/rentals' component={Rentals}></ProtectedRoute>
     <Route path='/notfound' component={NotFound}></Route>
     <Redirect from='/' exact to='/movies'></Redirect> 
     <Redirect to='/notfound'></Redirect>
