@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import _ from "lodash";
-
-import Table from "./table";
 import { getRentals } from "../services/rentalService";
 
 class Rentals extends Component {
   state = {
-    data: [],
-    sortColumn: { path: "customer.name", order: "asc" },
+    rentals: [],
+  };
+
+  componentDidMount = async () => {
+    try {
+      const rentals = await getRentals();
+      this.setState({ rentals });
+    } catch (error) {
+      console.error("Error fetching rentals:", error);
+    }
   };
 
   formatDate = (dateStr) => {
@@ -16,60 +21,41 @@ class Rentals extends Component {
     return date.toLocaleDateString() + " " + date.toLocaleTimeString();
   };
 
-  columnns = [
-    {
-      path: "customer.name",
-      lable: "Customer Name",
-      content: (rental) => rental.customer.name,
-    },
-    {
-      path: "movie.title",
-      lable: "Movie Title",
-      content: (rental) => rental.movie.title,
-    },
-    {
-      path: "dateOut",
-      lable: "Date Out",
-      content: (rental) => this.formatDate(rental.dateOut),
-    },
-    {
-      path: "dateReturned",
-      lable: "Date Returned",
-      content: (rental) => this.formatDate(rental.dateReturned),
-    },
-  ];
-
-  handleSort = (sortColumn) => {
-    const sorted = _.orderBy(
-      this.state.data,
-      [sortColumn.path],
-      [sortColumn.order]
-    );
-    this.setState({ sortColumn, data: sorted });
-  };
-
-  async componentDidMount() {
-    try {
-      const rentals = await getRentals();
-      this.setState({ data: rentals });
-    } catch (error) {
-      console.error("Error fetching rentals data:", error);
-    }
-  }
-
   render() {
-    const { data, sortColumn } = this.state;
+    const { rentals } = this.state;
 
     return (
-      <>
-        <h1>Rentals</h1>
-        <Table
-          data={data}
-          sortColumn={sortColumn}
-          onSort={this.handleSort}
-          columns={this.columnns} 
-        />
-      </>
+      <div className="container mt-4">
+        <h2>Rentals</h2>
+        <table className="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Movie Title</th>
+              <th>Date Out</th>
+              <th>Date Returned</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rentals.length === 0 ? (
+              <tr>
+                <td colSpan="4" className="text-center">
+                  No rentals found.
+                </td>
+              </tr>
+            ) : (
+              rentals.map((rental) => (
+                <tr key={rental._id}>
+                  <td>{rental.customer.name}</td>
+                  <td>{rental.movie.title}</td>
+                  <td>{this.formatDate(rental.dateOut)}</td>
+                  <td>{this.formatDate(rental.dateReturned)}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
