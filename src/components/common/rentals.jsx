@@ -8,7 +8,8 @@ class Rentals extends Component {
 
   componentDidMount = async () => {
     try {
-      const rentals = await getRentals();
+      const response = await getRentals();
+      const rentals = response.data; // <-- extract rentals array here
       this.setState({ rentals });
     } catch (error) {
       console.error("Error fetching rentals:", error);
