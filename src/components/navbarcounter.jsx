@@ -17,12 +17,16 @@ const Navbar=({user})=> {
             <li className="nav-item ">
               <NavLink className="nav-link" to="/movies">Movies <span className="sr-only"></span></NavLink>
             </li>
-            <li className="nav-item">
+            {user && (<>
+             <li className="nav-item">
               <NavLink className="nav-link " to="/customers">Customer</NavLink>
             </li>
-            <li className="nav-item">
+             <li className="nav-item">
               <NavLink className="nav-link" to="/rentals">Rental</NavLink>
             </li>
+            </>)}
+           
+           
            {!user &&(   <React.Fragment>
             <li className="nav-item">
               <NavLink className="nav-link" to="/login">Login</NavLink>
