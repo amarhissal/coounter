@@ -62,11 +62,11 @@ class Form extends Component {
        );
       }
 
-        renderBackButton = (navigateTo = "/") => {
+        renderBackButton = () => {
         return (
            <button
            type="button"
-          onClick={() => this.props.navigate(navigateTo)}
+          onClick={() =>this.props.history.push("/movies")}
           className="btn btn-secondary mb-2"
         >
           Back

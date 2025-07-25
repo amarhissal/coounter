@@ -93,7 +93,7 @@ class MovieForm extends Form {
 
         
             {this.renderButton("save")}
-              {this.renderBackButton("/movies")}
+              {this.renderBackButton()}
         </form>
       
     </>);
